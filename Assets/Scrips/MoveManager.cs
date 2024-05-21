@@ -26,6 +26,7 @@ public class MoveManager : MonoBehaviour
 
     public bool MoveRight;
     public bool MoveLeft;
-
     public bool Jump;
+    public bool IsGrounded;
+
 }
