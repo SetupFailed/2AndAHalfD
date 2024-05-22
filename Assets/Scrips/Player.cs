@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private bool isGrounded;
+   
     public float Speed;
     private Rigidbody rb;
 
@@ -36,10 +36,11 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
 
-        if (MoveManager.Instance.Jump && isGrounded)
+        if (MoveManager.Instance.Jump && MoveManager.Instance.IsGrounded)
         {
             rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
-            isGrounded = false; // player är inte grounded
+            MoveManager.Instance.IsGrounded = false; 
+            MoveManager.Instance.Jump = true;
         }
     }
 
@@ -47,14 +48,14 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            MoveManager.Instance.IsGrounded = true;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
+            MoveManager.Instance.IsGrounded = false;
         }
     }
 

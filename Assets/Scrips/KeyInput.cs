@@ -25,7 +25,7 @@ public class KeyInput : MonoBehaviour
             MoveManager.Instance.MoveLeft = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             MoveManager.Instance.Jump = true;
         }

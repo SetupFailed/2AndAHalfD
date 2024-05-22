@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class MoveManager : MonoBehaviour
 {
 
-    public float DistToGround = 1;
-    public Text debug;
+
+    
     public static MoveManager Instance = null;
 
     private void Awake()
